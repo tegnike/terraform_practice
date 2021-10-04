@@ -1,10 +1,211 @@
 {
   "version": 4,
   "terraform_version": "0.12.28",
-  "serial": 21,
+  "serial": 27,
   "lineage": "a771ef13-aa3d-7d58-85fd-e0928978e16f",
-  "outputs": {},
+  "outputs": {
+    "ec2_public_ip": {
+      "value": "13.58.92.86",
+      "type": "string"
+    }
+  },
   "resources": [
+    {
+      "mode": "data",
+      "type": "aws_ami",
+      "name": "wordpress",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "architecture": "x86_64",
+            "arn": "arn:aws:ec2:us-east-2::image/ami-02f2b61f6fbac4c0d",
+            "block_device_mappings": [
+              {
+                "device_name": "/dev/sdb",
+                "ebs": {},
+                "no_device": "",
+                "virtual_name": "ephemeral0"
+              },
+              {
+                "device_name": "/dev/sdc",
+                "ebs": {},
+                "no_device": "",
+                "virtual_name": "ephemeral1"
+              },
+              {
+                "device_name": "/dev/sdd",
+                "ebs": {},
+                "no_device": "",
+                "virtual_name": "ephemeral2"
+              },
+              {
+                "device_name": "/dev/sde",
+                "ebs": {},
+                "no_device": "",
+                "virtual_name": "ephemeral3"
+              },
+              {
+                "device_name": "/dev/xvda",
+                "ebs": {
+                  "delete_on_termination": "true",
+                  "encrypted": "false",
+                  "iops": "0",
+                  "snapshot_id": "snap-0551f294668d94cf8",
+                  "throughput": "0",
+                  "volume_size": "10",
+                  "volume_type": "gp2"
+                },
+                "no_device": "",
+                "virtual_name": ""
+              }
+            ],
+            "creation_date": "2021-05-14T11:18:21.000Z",
+            "description": "This image may not be the latest version available and might include security vulnerabilities. Please check the latest, up-to-date, available version at https://bitnami.com/stacks.",
+            "ena_support": true,
+            "executable_users": null,
+            "filter": [
+              {
+                "name": "name",
+                "values": [
+                  "bitnami-wordpress-5.7.2-2-linux-debian-10*"
+                ]
+              }
+            ],
+            "hypervisor": "xen",
+            "id": "ami-02f2b61f6fbac4c0d",
+            "image_id": "ami-02f2b61f6fbac4c0d",
+            "image_location": "aws-marketplace/bitnami-wordpress-5.7.2-2-linux-debian-10-x86_64-hvm-ebs-nami-7d426cb7-9522-4dd7-a56b-55dd8cc1c8d0",
+            "image_owner_alias": "aws-marketplace",
+            "image_type": "machine",
+            "kernel_id": null,
+            "most_recent": true,
+            "name": "bitnami-wordpress-5.7.2-2-linux-debian-10-x86_64-hvm-ebs-nami-7d426cb7-9522-4dd7-a56b-55dd8cc1c8d0",
+            "name_regex": null,
+            "owner_id": "679593333241",
+            "owners": [
+              "679593333241"
+            ],
+            "platform": null,
+            "platform_details": "Linux/UNIX",
+            "product_codes": [
+              {
+                "product_code_id": "7eyp7o9i35afqvpvvh5gujt8w",
+                "product_code_type": "marketplace"
+              }
+            ],
+            "public": true,
+            "ramdisk_id": null,
+            "root_device_name": "/dev/xvda",
+            "root_device_type": "ebs",
+            "root_snapshot_id": "snap-0551f294668d94cf8",
+            "sriov_net_support": "simple",
+            "state": "available",
+            "state_reason": {
+              "code": "UNSET",
+              "message": "UNSET"
+            },
+            "tags": {},
+            "usage_operation": "RunInstances",
+            "virtualization_type": "hvm"
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_instance",
+      "name": "wordpress",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "ami": "ami-02f2b61f6fbac4c0d",
+            "arn": "arn:aws:ec2:us-east-2:357648336258:instance/i-04a73b1694699c63b",
+            "associate_public_ip_address": true,
+            "availability_zone": "us-east-2a",
+            "cpu_core_count": 1,
+            "cpu_threads_per_core": 2,
+            "credit_specification": [
+              {
+                "cpu_credits": "unlimited"
+              }
+            ],
+            "disable_api_termination": false,
+            "ebs_block_device": [],
+            "ebs_optimized": false,
+            "enclave_options": [
+              {
+                "enabled": false
+              }
+            ],
+            "ephemeral_block_device": [],
+            "get_password_data": false,
+            "hibernation": false,
+            "host_id": null,
+            "iam_instance_profile": "",
+            "id": "i-04a73b1694699c63b",
+            "instance_initiated_shutdown_behavior": null,
+            "instance_state": "running",
+            "instance_type": "t3.small",
+            "ipv6_address_count": 0,
+            "ipv6_addresses": [],
+            "key_name": "aws_development_common_ec2",
+            "metadata_options": [
+              {
+                "http_endpoint": "enabled",
+                "http_put_response_hop_limit": 1,
+                "http_tokens": "optional"
+              }
+            ],
+            "monitoring": false,
+            "network_interface": [],
+            "outpost_arn": "",
+            "password_data": "",
+            "placement_group": "",
+            "primary_network_interface_id": "eni-0f648b221d887dda7",
+            "private_dns": "ip-10-0-0-47.us-east-2.compute.internal",
+            "private_ip": "10.0.0.47",
+            "public_dns": "ec2-13-58-92-86.us-east-2.compute.amazonaws.com",
+            "public_ip": "13.58.92.86",
+            "root_block_device": [
+              {
+                "delete_on_termination": true,
+                "device_name": "/dev/xvda",
+                "encrypted": false,
+                "iops": 100,
+                "kms_key_id": "",
+                "tags": {},
+                "throughput": 0,
+                "volume_id": "vol-02dd6ef9f82d7a620",
+                "volume_size": 10,
+                "volume_type": "gp2"
+              }
+            ],
+            "secondary_private_ips": [],
+            "security_groups": [],
+            "source_dest_check": true,
+            "subnet_id": "subnet-0d441f4e2284aaa9f",
+            "tags": null,
+            "tenancy": "default",
+            "timeouts": null,
+            "user_data": null,
+            "user_data_base64": null,
+            "volume_tags": null,
+            "vpc_security_group_ids": [
+              "sg-000392a728852db71"
+            ]
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6MTIwMDAwMDAwMDAwMCwidXBkYXRlIjo2MDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjEifQ==",
+          "dependencies": [
+            "aws_security_group.allow",
+            "aws_subnet.public-a"
+          ]
+        }
+      ]
+    },
     {
       "mode": "managed",
       "type": "aws_internet_gateway",
@@ -187,6 +388,142 @@
             "aws_internet_gateway.gw",
             "aws_route_table.public",
             "aws_subnet.public-b",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "allow",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-2:357648336258:security-group/sg-000392a728852db71",
+            "description": "Allow inbound traffic",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-000392a728852db71",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              },
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "allow",
+            "name_prefix": "",
+            "owner_id": "357648336258",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "allow_http"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-016c2d9a561bdd8db"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "inbound_http",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "description": "",
+            "from_port": 80,
+            "id": "sgrule-4000999448",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-000392a728852db71",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 80,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.allow",
+            "aws_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "inbound_ssh",
+      "provider": "provider.aws",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "description": "",
+            "from_port": 22,
+            "id": "sgrule-1492137389",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-000392a728852db71",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 22,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.allow",
             "aws_vpc.main"
           ]
         }

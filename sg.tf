@@ -20,9 +20,7 @@ resource "aws_security_group_rule" "inbound_http" {
   from_port = 80
   to_port   = 80
   protocol  = "tcp"
-  cidr_blocks = [
-    "0.0.0.0/0"
-  ]
+  source_security_group_id = aws_security_group.lb.id
 
   security_group_id = aws_security_group.allow.id
 }

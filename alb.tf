@@ -67,11 +67,11 @@ resource "aws_lb_target_group" "ec2" {
   vpc_id   = aws_vpc.main.id
 }
 
-resource "aws_lb_target_group_attachment" "ec2" {
-  target_group_arn = aws_lb_target_group.ec2.arn
-  target_id        = aws_instance.wordpress.id
-  port             = 80
-}
+# resource "aws_lb_target_group_attachment" "ec2" {
+#   target_group_arn = aws_lb_target_group.ec2.arn
+#   target_id        = aws_instance.wordpress.id
+#   port             = 80
+# }
 
 output "lb_dns_name" {
   value = aws_lb.lb.dns_name
